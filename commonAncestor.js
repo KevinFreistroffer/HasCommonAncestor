@@ -17,19 +17,15 @@
     let hasCommon = false;
     let c1Pairs = [];
     let c2Pairs = [];
-    let c1PairsLength = 0;
-    let c2PairsLength = 0;
 
     if (array.some(a => a[1] === c1) && array.some(b => b[1] === c2)) {
         array.forEach(pair => {
             if (pair[1] === c1) {
                 c1Pairs.push(pair);
-                c1PairsLength = c1Pairs.length;
             }
 
             if (pair[1] === c2) {
                 c2Pairs.push(pair);
-                c2PairsLength = c2Pairs.length;
             }
         });
         
