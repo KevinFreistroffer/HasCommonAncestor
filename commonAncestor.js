@@ -11,7 +11,6 @@
      [11,7],
  ];
 
- 
  function hasCommonAncestor(array, c1, c2) {
 
     let hasCommon = false;
@@ -33,7 +32,6 @@
             c1Pairs.some(c1P => {
                 if (c2Pairs.some(c2P => c2P[0] === c1P[0])) {
                     hasCommon = true;
-                    console.log(c1, c2, `hasCommon: ${hasCommon}`)
                     return;
                 } else {
                     for(let i = 0; i < c1Pairs.length; i++) {
