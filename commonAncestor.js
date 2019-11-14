@@ -18,6 +18,8 @@
     let c2Pairs = [];
 
     if (array.some(a => a[1] === c1) && array.some(b => b[1] === c2)) {
+        
+        // Find all the pairs for c1 and c2
         array.forEach(pair => {
             if (pair[1] === c1) {
                 c1Pairs.push(pair);
@@ -30,14 +32,17 @@
         
         if (c1Pairs && c1Pairs.length && c2Pairs && c2Pairs.length) {
             c1Pairs.some(c1P => {
+                // Find any immediate/first level/parent common ancestors
                 if (c2Pairs.some(c2P => c2P[0] === c1P[0])) {
                     hasCommon = true;
                     return;
                 } else {
+                    // Look for a c1's parent(s) parent(s) common ancestors with c2
                     for(let i = 0; i < c1Pairs.length; i++) {
                         hasCommon = hasCommonAncestor(array, c1Pairs[i][0], c2);
                     }
-
+ 
+                   // Or look for a c2's parent(s) parent(s) common ancestors with c1
                     if (!hasCommon) {
                         for(let i = 0; i < c2Pairs.length; i++) {
                             hasCommon = hasCommonAncestor(array, c2Pairs[i][0], c1);
